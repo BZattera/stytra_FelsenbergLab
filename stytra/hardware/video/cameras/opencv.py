@@ -13,7 +13,7 @@ class OpenCVCamera(Camera):
 
     """
 
-    def __init__(self, cam_idx=0, bw=False, **kwargs):
+    def __init__(self, cam_idx=1, bw=False, **kwargs):
         """
 
         Parameters

@@ -10,6 +10,7 @@ import git
 import sys
 import types
 import imageio
+from pyfirmata import Arduino
 
 from PyQt5.QtCore import QObject, QTimer, pyqtSignal, QByteArray
 from PyQt5.QtWidgets import QMessageBox
@@ -108,6 +109,7 @@ class Experiment(QObject):
     ):
         self.arguments = locals()
         super().__init__()
+        self.board = None#Arduino('COM6')
 
         self.app = app
         self.protocol = protocol

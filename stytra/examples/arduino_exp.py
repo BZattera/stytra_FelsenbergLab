@@ -7,7 +7,7 @@ from lightparam import Param
 # applications you want to subclass the WriteArduinoPin class.
 class ArduinoProtocol(Protocol):
     name = 'arduino_protocol'
-    stytra_config = dict(arduino_config=dict(com_port="COM3", layout=[dict(pin=11, mode="pwm", ad="d"),dict(pin=5, mode="pwm", ad="d")]))
+    stytra_config = dict(arduino_config=dict(com_port="COM6", layout=[dict(pin=11, mode="pwm", ad="d"),dict(pin=5, mode="pwm", ad="d")]))
 
     def __init__(self):
         super(ArduinoProtocol, self).__init__()
