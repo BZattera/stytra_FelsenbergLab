@@ -8,6 +8,7 @@ from multiprocessing import Process, Event, Queue
 import datetime
 import time
 from queue import Empty
+import nidaqmx
 
 try:
     import zmq
@@ -199,7 +200,42 @@ class U3LabJackPulseTrigger(Trigger):
         super().run()
 
 
+class NIBoard(Trigger):
+    """" This triiger uses the NI Board to recieve a TTL pulse from an external source.
+    The DIO number is used as input.
+    The pin is initialized as input automatically"""
+
+    def __init__(self, chan):
+        """"
+
+        Parameters
+        ----------
+            chan: int
+
+        """
+        super().__init__()
+        self.chan = chan
+        self.device = None
+
+    def check_trigger(self):
+        """" Simply returns the state of the pin as a boolean """
+        with nidaqmx.Task() as task:
+            task.ai_channels.add_ai_voltage_chan(self.chan)
+            self.input = task.read()
+        return bool(round(self.input))
+
+    def run(self):
+        with nidaqmx.Task() as task:
+            self.device = task.ai_channels.add_ai_voltage_chan(self.chan)
+
+            self.input = task.read()
+        super().run()
+
 if __name__ == "__main__":
-    port = "5555"
-    trigger = ZmqTrigger(port)
-    trigger.start()
+    # port = "5555"
+    # trigger = ZmqTrigger(port)
+    # trigger.start()
+
+    chan = "Dev1/ai0"
+    nidaqmx.Task.ai_channels.add_ai_voltage_chan(chan)
+    bool(round(nidaqmx.Task.read()))

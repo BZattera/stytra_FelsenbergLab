@@ -1,5 +1,6 @@
 from stytra import Stytra, Protocol
 from stytra.stimulation.stimuli.visual import Pause, FullFieldVisualStimulus
+import nidaqmx
 
 # 1. Define a protocol subclass
 class FlashProtocol(Protocol):
@@ -16,6 +17,16 @@ class FlashProtocol(Protocol):
         return stimuli
 
 
-if __name__ == "__main__":
-    # This is the line that actually opens stytra with the new protocol.
-    st = Stytra(protocol=FlashProtocol())
+# if __name__ == "__main__":
+#     # This is the line that actually opens stytra with the new protocol.
+#     st = Stytra(protocol=FlashProtocol())
+
+
+
+#
+with nidaqmx.Task() as task:
+    task.ai_channels.add_ai_voltage_chan("Dev1/ai0")
+    input = task.read()
+
+    if round(input) > 0:
+        st = Stytra(protocol=FlashProtocol())
