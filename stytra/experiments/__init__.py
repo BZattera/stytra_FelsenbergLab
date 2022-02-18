@@ -109,7 +109,7 @@ class Experiment(QObject):
     ):
         self.arguments = locals()
         super().__init__()
-        self.board = None#Arduino('COM6')
+        self.board = None#Arduino('COM5')
 
         self.app = app
         self.protocol = protocol
@@ -237,10 +237,10 @@ class Experiment(QObject):
         self.dc.restore_from_saved()
         self.set_id()
 
-        if self.arduino_config is not None:
-            from stytra.hardware.external_pyfirmata import PyfirmataConnection
-            self.arduino_board = PyfirmataConnection(com_port=self.arduino_config["com_port"],
-                                                     layout=self.arduino_config["layout"])
+        # if self.arduino_config is not None:
+        #     from stytra.hardware.external_pyfirmata import PyfirmataConnection
+        #     self.arduino_board = PyfirmataConnection(com_port=self.arduino_config["com_port"],
+        #                                              layout=self.arduino_config["layout"])
 
         self.make_window()
         self.protocol_runner.update_protocol()

@@ -341,6 +341,7 @@ class Protocol(ParametrizedQt):
         self.post_pause = Param(0.0, limits=(0.0, 10000.0))
         self.n_repeats = Param(1, limits=(1, 10000))
 
+
     def _get_stimulus_list(self):
         """Generate protocol from specified parameters. Called by the
         ProtocolRunner class where the Protocol instance is defined.

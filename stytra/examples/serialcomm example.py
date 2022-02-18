@@ -5,7 +5,7 @@ from stytra.hardware.serial import SerialConnection
 
 
 class ArduinoCommStimulus(Stimulus):
-    def __init__(self, com_port="COM3", baudrate=115200, **kwargs):
+    def __init__(self, com_port="COM8", baudrate=115200, **kwargs):
         super().__init__(**kwargs)
         self._pyb = None
         self.com_port = com_port
