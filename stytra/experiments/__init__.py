@@ -93,7 +93,7 @@ class Experiment(QObject):
         self,
         app=None,
         protocol=None,
-        dir_save=None,
+        dir_save=r"C:\Users\zattbene\Documents\GitHub",
         dir_assets="",
         instance_number=-1,
         database=None,
