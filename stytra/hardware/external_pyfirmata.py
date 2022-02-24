@@ -102,7 +102,7 @@ if __name__ == "__main__":
     write_multiple = {5: 0.4,
                       11: 1.0}
 
-    try_pumps = PyfirmataConnection(com_port='COM3', layout=LAYOUT)
+    #try_pumps = PyfirmataConnection(com_port='COM3', layout=LAYOUT)
 
     #try_pumps.close()
 

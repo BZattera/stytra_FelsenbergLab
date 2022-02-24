@@ -1,6 +1,6 @@
 import numpy as np
 import datetime
-
+import pyfirmata
 
 class Stimulus:
     """ Abstract class for a Stimulus.
