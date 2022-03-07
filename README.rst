@@ -30,67 +30,42 @@ depending on the experimental requirements. For a complete description, look at 
 Instructions to create your first experiment in Stytra and usage examples can be found in the `example gallery <http://www.portugueslab.com/stytra/userguide/1_examples_gallery.html>`_.
 
 
-Quick installation guide
+Quick installation guide for FELSENBERG LAB stytra version
 ------------------------
 
-Stytra relies on `opencv <https://docs.opencv.org/3
-.0-beta/doc/py_tutorials/py_tutorials.html>`_ for some of its fish tracking
-functions. If you don't have it installed, open the Anaconda prompt and type::
+1) use github desktop to download the repo
 
-    pip install opencv-python
+2) Open the anaconda prompt
 
-If you are using Windows, git (used for tracking software versions) might not be
-installed. Git can also be easily installed with conda::
+3) create the anaconda environment with the command conda env create -f C:\Users\drosophila\Documents\GitHub\stytra_FelsenbergLab\environment.yml  (use your specific path to the file)
 
-    conda install git
+4) activate the environment with the command: conda activate stytra_env
 
+5) pip install pyfirmata
 
-This should be everything you need to make ready before installing stytra.
+6) pip install nidaqmx
 
- > PyQt5 is not listed as an explicit requirement because it should come with the Anaconda package. If you are not using Anaconda, make sure you have it installed and updated before installing Stytra!
-
-The simplest way to install Stytra is with pip::
-
-    pip install stytra
-
-You can verify the installation by running one of the examples in stytra
-examples folder. To run a simple looming stimulus experiment, you can
-type::
-
-    python -m stytra.examples.looming_exp
-
-If the GUI opens correctly and pressing the play button starts the stimulus:
-congratulations, installation was successful! If it crashes, check
-if you have all dependencies correctly installed. If it still does not work,
-open an issue on the `Stytra github page <https://github
-.com/portugueslab/stytra>`_.
-
-Editable installation
-.....................
-
-On the other hand, if you want to modify the internals of stytra or use the
-unreleased features, clone or download stytra from `github <https://github.com/portugueslab/stytra>`_ and install it with::
-
-    pip install path_to_stytra/stytra
-
-If you want to be able to change the stytra code and use the changed version,
-install using the -e argument::
-
-
-    pip install -e path_to_stytra/stytra
+7) install OUR VERSION of stytra from github, with the command: pip install git+https://github.com/BZattera/stytra_FelsenbergLab
 
 
 
-Now you can have a look at the stytra `example gallery <http://www.portugueslab.com/stytra/userguide/1_examples_gallery.html>`_, or you can start
-`configuring a computer for Stytra experiments <http://www.portugueslab.com/stytra/userguide/5_configuring_computer.html>`_.
-In the second case, you might want to have a look at the camera APIs section below first.
+Ths installation is done!! Now, let's test the intallation by running an example:
 
-.. note::
-    Stytra might raise an error after quitting because of a bug in the current
-    version of pyqtgraph (a package we are using for online plotting).
-    If you are annoyed by the error messages
-    when closing the program you can install the develop version of pyqtgraph
-    from their `github repository <https://github.com/pyqtgraph/pyqtgraph>`_.
-    The problem will be resolved once the next pyqtgraph version is released.
+1) Open PyCharm
+
+2) Go to stytra_FelsenbergLab\stytra\examples and open most_basic_example
+
+3) Click on File>Settings>Project>Project interpreter(or, more easily, on Python 3.8 on the bottom left of the interface)
+
+4) Click on the the setting icon
+
+5) Click on VirtualEnvironment > Existing environment
+
+6) Click on the ... icon with the 3 dots and navigate to .conda > envs > Stytra_env and click on python.exe
+
+7) Select "Make available for all projects" and then click OK. The update of the environment can take some time.
+
+8) Right click on the protocol > Run
+
 
 For further details on the installation please consult the relative `documentation  page <http://www.portugueslab.com/stytra/userguide/0_install_guide.html>`_.
