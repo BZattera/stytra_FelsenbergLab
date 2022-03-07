@@ -68,4 +68,10 @@ Ths installation is done!! Now, let's test the intallation by running an example
 8) Right click on the protocol > Run
 
 
+If you run stytra while logged with your username rather than with the lab account, you will have an error message.
+If this is the case, please, go to ...\stytra_FelsenbergLab\stytra\experiments and open the __init__ file. At line 96, change the dir_save.
+
+PLEASE, DO NOT PUSH THIS CHANGE!!
+
+
 For further details on the installation please consult the relative `documentation  page <http://www.portugueslab.com/stytra/userguide/0_install_guide.html>`_.
