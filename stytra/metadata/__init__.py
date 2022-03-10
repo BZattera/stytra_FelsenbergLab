@@ -21,5 +21,7 @@ class AnimalMetadata(Parametrized):
         self.species = Param("")
         self.age = Param("")
         self.id = Param("0")
+        self.odors_num = Param("0")
+        self.sex = Param("F")
         self.comments = Param("", desc="Comments on the animal or experiment")
         self.genotype = Param("WT")
